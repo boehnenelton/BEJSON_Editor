@@ -10,6 +10,8 @@
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-red.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0/)
 [![CSP Compliance](https://img.shields.io/badge/CSP-Strict%20SHA--256-success.svg)]()
 
+![Modern BEJSON Editor Animated Banner](images/repo_banner.gif)
+
 ---
 
 ## Technical Metadata & Credits
