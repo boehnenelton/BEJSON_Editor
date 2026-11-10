@@ -77,8 +77,23 @@ def copy_address_to_clipboard(url: str = SERVER_URL) -> bool:
     return False
 
 
-def open_url_in_browser(url: str = SERVER_URL) -> bool:
-    """Opens URL in default browser using termux-open-url, termux-open, or xdg-open."""
+def open_url_in_browser(url: str = SERVER_URL, prefer_chrome: bool = True) -> bool:
+    """Opens URL in Chrome (via Android Activity Manager) or default browser."""
+    if prefer_chrome:
+        am_bin = shutil.which("am") or ("/system/bin/am" if Path("/system/bin/am").exists() else None)
+        if am_bin:
+            try:
+                res = subprocess.run(
+                    [str(am_bin), "start", "-n", "com.android.chrome/com.google.android.apps.chrome.Main", "-d", url],
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                    check=False
+                )
+                if res.returncode == 0:
+                    return True
+            except Exception:
+                pass
+
     for bin_name in ("termux-open-url", "termux-open", "xdg-open"):
         bin_path = shutil.which(bin_name)
         if bin_path:
@@ -92,6 +107,7 @@ def open_url_in_browser(url: str = SERVER_URL) -> bool:
             except Exception:
                 pass
     return False
+
 
 
 def start_server_async(port: int = DEFAULT_PORT) -> Tuple[bool, int, str]:
