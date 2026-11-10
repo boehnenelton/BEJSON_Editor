@@ -1,0 +1,52 @@
+{
+  "Format": "BEJSON",
+  "Format_Version": "104a",
+  "Format_Creator": "Elton Boehnen",
+  "Records_Type": [
+    "Definitions"
+  ],
+  "Fields": [
+    {
+      "name": "variable_name",
+      "type": "string"
+    },
+    {
+      "name": "path_or_value",
+      "type": "string"
+    },
+    {
+      "name": "category",
+      "type": "string"
+    },
+    {
+      "name": "scope",
+      "type": "string"
+    },
+    {
+      "name": "is_active",
+      "type": "boolean"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    }
+  ],
+  "Values": [
+    [
+      "PROJECT_ROOT",
+      "/path/to/project",
+      "Path",
+      "Global",
+      true,
+      "Root working directory for project assets"
+    ],
+    [
+      "DATA_DIR",
+      "/path/to/user/databases",
+      "Path",
+      "Local",
+      true,
+      "Local persistence storage directory"
+    ]
+  ]
+}

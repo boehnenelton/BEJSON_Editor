@@ -1,0 +1,52 @@
+{
+  "Format": "BEJSON",
+  "Format_Version": "104",
+  "Format_Creator": "Elton Boehnen",
+  "Records_Type": [
+    "Screen_Layouts"
+  ],
+  "Fields": [
+    {
+      "name": "screen_id",
+      "type": "string"
+    },
+    {
+      "name": "screen_title",
+      "type": "string"
+    },
+    {
+      "name": "theme_mode",
+      "type": "string"
+    },
+    {
+      "name": "columns_count",
+      "type": "integer"
+    },
+    {
+      "name": "is_visible",
+      "type": "boolean"
+    },
+    {
+      "name": "accent_color",
+      "type": "string"
+    }
+  ],
+  "Values": [
+    [
+      "screen_main",
+      "Main Dashboard",
+      "dark",
+      12,
+      true,
+      "#DE2626"
+    ],
+    [
+      "screen_settings",
+      "Settings & Preferences",
+      "dark",
+      8,
+      true,
+      "#DE2626"
+    ]
+  ]
+}

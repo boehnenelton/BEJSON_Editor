@@ -1,0 +1,60 @@
+{
+  "Format": "BEJSON",
+  "Format_Version": "104",
+  "Format_Creator": "Elton Boehnen",
+  "Records_Type": [
+    "Inventory"
+  ],
+  "Fields": [
+    {
+      "name": "item_id",
+      "type": "integer"
+    },
+    {
+      "name": "sku",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "quantity",
+      "type": "integer"
+    },
+    {
+      "name": "price",
+      "type": "number"
+    },
+    {
+      "name": "in_stock",
+      "type": "boolean"
+    }
+  ],
+  "Values": [
+    [
+      101,
+      "SKU-A100",
+      "Widget Alpha",
+      45,
+      19.99,
+      true
+    ],
+    [
+      102,
+      "SKU-B200",
+      "Widget Beta",
+      12,
+      49.5,
+      true
+    ],
+    [
+      103,
+      "SKU-C300",
+      "Widget Gamma",
+      0,
+      89.0,
+      false
+    ]
+  ]
+}
