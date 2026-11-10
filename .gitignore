@@ -1,4 +1,6 @@
 dev/
 backups/
 *.tmp
+*.log
+*.pid
 .DS_Store

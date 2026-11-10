@@ -325,8 +325,16 @@ def delete_database(filename: str):
 # ------------------------------------------------------------------------------
 # Entrypoint
 # ------------------------------------------------------------------------------
+DEFAULT_PORT = 5016
+
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="BEJSON Editor Flask Server")
+    parser.add_argument("--port", "-p", type=int, default=int(os.environ.get("PORT", DEFAULT_PORT)), help="Port to bind (default: 5016)")
+    parser.add_argument("--host", default="0.0.0.0", help="Host interface (default: 0.0.0.0)")
+    args = parser.parse_args()
+
     DATABASES_DIR.mkdir(parents=True, exist_ok=True)
-    logger.info("Starting BEJSON Editor Flask Server on http://0.0.0.0:5000")
+    logger.info("Starting BEJSON Editor Flask Server on http://%s:%d", args.host, args.port)
     logger.info("Databases folder: %s", DATABASES_DIR)
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host=args.host, port=args.port, debug=False)
