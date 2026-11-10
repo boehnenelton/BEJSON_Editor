@@ -1,0 +1,61 @@
+<!--
+  Component: Overflow Dock Toolbar Strip
+  Description: Horizontal scrollable dock strip immediately below header hosting File & Table dropdowns,
+               grid search, table selector, and Close File as the final field.
+-->
+<div id="dockToolbar" class="dock-toolbar hide-scrollbar">
+  <!-- File Dropdown -->
+  <div class="dropdown" id="dropdownFile">
+    <button class="btn dropdown-toggle" id="dropdownFileBtn" aria-haspopup="true" aria-expanded="false" style="display: inline-flex; align-items: center; gap: 4px;">
+      File <span style="font-size: 10px;">▼</span>
+    </button>
+    <div class="dropdown-menu hidden" id="dropdownFileMenu">
+      <button class="dropdown-item" id="btnSaveFile" title="Save active file immediately (Ctrl+S)">Save</button>
+      <button class="dropdown-item" id="btnSaveAs" title="Save the active file under a new name">Save As…</button>
+      <button class="dropdown-item" id="btnImportHeader" title="Load an existing .bejson / .json file">Load</button>
+    </div>
+  </div>
+
+  <!-- Table Dropdown -->
+  <div class="dropdown" id="dropdownTable">
+    <button class="btn dropdown-toggle" id="dropdownTableBtn" aria-haspopup="true" aria-expanded="false" style="display: inline-flex; align-items: center; gap: 4px;">
+      Table <span style="font-size: 10px;">▼</span>
+    </button>
+    <div class="dropdown-menu hidden" id="dropdownTableMenu">
+      <button class="dropdown-item" id="btnShowAddFieldDialog">Add Field</button>
+      <button class="dropdown-item" id="btnAddRow">Add Record</button>
+      <button class="dropdown-item" id="btnBulkDeleteFields" data-click="openBulkDeleteFieldsModal">Bulk Remove</button>
+      <button class="dropdown-item js-entity-btn hidden" id="btnAddEntity">Add Entity</button>
+      <button class="dropdown-item js-entity-btn hidden" id="btnDeleteEntity">Delete Entity</button>
+    </div>
+  </div>
+
+  <!-- Search Input moved down next to the two dropdowns -->
+  <div style="display: flex; align-items: center; gap: 4px;">
+    <input type="text" id="searchInput" class="text-input" placeholder="Search grid..." style="width: 150px; flex-shrink: 0; height: 28px; font-size: 12px; box-sizing: border-box;">
+  </div>
+
+  <!-- Dynamic Table & MFDB Controls -->
+  <div id="tableTools" class="hidden" style="display: inline-flex; gap: 6px; align-items: center;">
+    <select id="tableSelector" style="min-width: 140px; flex-shrink: 0; height: 28px; font-size: 12px;"></select>
+    <button class="btn js-mode-mfdb hidden" id="btnLoadMultiFilesHeader">Load Files</button>
+    <button class="btn js-mode-mfdb hidden" id="btnLoadMfdbFolderHeader">Load Folder</button>
+    <button class="btn js-mode-mfdb hidden" id="btnLoadMfdbZipHeader">Load ZIP</button>
+    <button class="btn js-mode-mfdb js-needs-fsa hidden" id="btnMountMfdbFolderHeader" title="Link a folder on disk so saves write straight back (Chrome/Edge)">Mount Folder</button>
+    <button class="btn js-mode-mfdb hidden" id="btnValidateMfdb" title="Check manifest and entity files against the MFDB rules">Validate MFDB</button>
+    <button class="btn js-mode-mfdb hidden" id="btnSaveAllMfdb" title="Write every mounted table back to disk (no mount: exports a ZIP)">Save All</button>
+    <button class="btn js-mode-mfdb hidden" id="btnExportMfdbZipHeader">Export ZIP</button>
+    <button class="btn js-mode-mfdb hidden" id="btnCloseAllMfdb" title="Unload everything and return to the Hub">Close All</button>
+  </div>
+
+  <!-- Column Selection Controls -->
+  <span id="colSelectedControls" class="hidden" style="display: inline-flex; gap: 6px; align-items: center; background: rgba(222, 38, 38, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid #DE2626; white-space: nowrap;">
+    <span style="font-size: 11px; font-weight: bold; color: #DE2626;">Col: <span id="colSelectedName"></span></span>
+    <button class="btn" data-click="clearSelectedColumn" title="Clear all cells in this column to null" style="padding: 2px 6px; font-size: 11px;">Clear Col</button>
+    <button class="btn btn-red" data-click="deleteSelectedColumn" title="Delete this field column permanently" style="padding: 2px 6px; font-size: 11px;">Delete Col</button>
+    <button class="btn" data-click="deselectColumn" title="Deselect column" style="padding: 2px 6px; font-size: 11px;">✕</button>
+  </span>
+
+  <!-- Close File as the LAST field on the toolbar -->
+  <button class="btn" id="btnCloseTable" title="Unload the active file from the editor (nothing is deleted on disk)" style="margin-left: auto; flex-shrink: 0;">Close File</button>
+</div>

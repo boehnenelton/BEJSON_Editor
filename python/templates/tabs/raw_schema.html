@@ -1,0 +1,12 @@
+    <div id="tab-raw-schema" class="tab-content hidden" role="tabpanel">
+      <div style="margin-bottom: 8px; display: flex; gap: 8px; overflow-x: auto; align-items: center; flex-shrink: 0;" class="thin-scrollbar">
+        <button class="btn btn-red" id="btnSaveFileSchema" data-click="saveActiveBejsonFile" title="Save file immediately (Ctrl+S)">💾 Save File</button>
+        <button class="btn" data-click="rawSchemaCopy">Copy Schema</button>
+        <button class="btn" data-click="rawSchemaSelectAll">Select All</button>
+        <button class="btn" data-click="saveRawSchema">Download JSON</button>
+        <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer; margin-left: auto; white-space: nowrap; user-select: none;">
+          <input type="checkbox" id="chkRawSchemaIncludeValues" checked data-change="renderRawSchema"> Include Records (Values)
+        </label>
+      </div>
+      <pre id="rawSchemaPre" class="text-input scrollable-container thin-scrollbar" style="width: 100%; box-sizing: border-box; font-family: var(--font-mono); margin: 0; resize: none;"></pre>
+    </div>

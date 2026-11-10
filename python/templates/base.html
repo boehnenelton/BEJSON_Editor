@@ -1,0 +1,38 @@
+<!--
+  Name:            base.html
+  Description:     Base Jinja2 layout shell for Modern BEJSON Editor (104/104a).
+  Author:          Elton Boehnen · boehnenelton2024@gmail.com · boehnenelton2024.pages.dev · github.com/boehnenelton
+  License:         PolyForm-Noncommercial-1.0.0
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}BEJSON Editor{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <!-- Header Row -->
+  {% include 'components/header.html' %}
+
+  <!-- Hamburger Sidebar Drawer -->
+  {% include 'components/sidebar.html' %}
+
+  <!-- Overflow Dock Toolbar Strip -->
+  {% include 'components/toolbar.html' %}
+
+  <!-- Main Workspace -->
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Modals & Context Menu -->
+  {% include 'components/modals.html' %}
+
+  <!-- Core Application Logic -->
+  <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

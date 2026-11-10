@@ -1,0 +1,20 @@
+<!--
+  Component: Hamburger Sidebar Drawer
+  Description: Off-canvas navigation drawer offering Hub and Table tabs per user specification.
+-->
+<div id="drawerOverlay" class="drawer-overlay hidden"></div>
+<aside id="drawerSidebar" class="drawer-sidebar" aria-hidden="true">
+  <div class="drawer-header">
+    <span style="font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Navigation</span>
+    <button class="btn btn-icon" id="btnDrawerClose" title="Close" style="padding: 2px 8px; font-size: 15px;">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <button class="drawer-item nav-tab active" id="navTabHub" data-tab="tab-hub">Hub</button>
+    <button class="drawer-item nav-tab" id="navTabGrid" data-tab="tab-grid" disabled style="opacity: 0.5; cursor: not-allowed;">Table</button>
+  </nav>
+  <!-- Hidden compatibility stubs for secondary schema tabs -->
+  <div class="hidden" style="display: none;">
+    <button class="nav-tab" id="navTabSchema" data-tab="tab-schema" disabled></button>
+    <button class="nav-tab" id="navTabRawSchema" data-tab="tab-raw-schema" disabled></button>
+  </div>
+</aside>

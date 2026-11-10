@@ -1,0 +1,75 @@
+    <div id="tab-hub" class="tab-content" role="tabpanel">
+      <div class="scrollable-container thin-scrollbar">
+      <h2 style="margin-top: 0;">BEJSON Hub</h2>
+
+      <div id="hubOpenFilesPanel" style="border: 1px solid var(--border-color, #ccc); padding: 16px 20px; border-radius: 4px; max-width: 500px; margin-bottom: 20px; background: var(--bg-color);">
+        <h3 style="margin-top: 0; margin-bottom: 8px;">Open Files</h3>
+        <div style="font-size: 12px; margin-bottom: 10px;"><strong>Active:</strong> <span id="hubActiveFileLabel">No file open</span></div>
+        <div id="hubOpenFilesList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+        <p style="font-size: 11px; opacity: 0.6; margin: 10px 0 0 0;">Paths are shown as the browser reports them (file name, folder-relative path, or mounted folder). Browsers do not expose full disk paths.</p>
+      </div>
+      
+      <div style="border: 1px solid #ccc; padding: 20px; border-radius: 4px; max-width: 500px; margin-bottom: 20px;">
+        <h3 style="margin-top: 0;" id="hubCreateHeading">Create New File</h3>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 8px;">Mode Selection</label>
+          <div style="display: flex; gap: 16px;">
+            <label><input type="radio" name="modeSelect" value="standard" checked data-change="toggleModes"> Standard Mode</label>
+            <label><input type="radio" name="modeSelect" value="mfdb" data-change="toggleModes"> MFDB Mode</label>
+          </div>
+        </div>
+
+        <div id="standardOptions" style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 8px;">Standard Format</label>
+          <div style="display: flex; gap: 16px;">
+            <label><input type="radio" name="formatSelectRadio" value="104" checked> 104</label>
+            <label><input type="radio" name="formatSelectRadio" value="104a"> 104a</label>
+          </div>
+        </div>
+
+        <div id="mfdbOptions" class="hidden" style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">Database Name</label>
+          <input type="text" id="hubDbName" class="text-input" placeholder="MyDatabase" style="width: 100%;">
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label id="hubEntityLabel" style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">Record Type</label>
+          <input type="text" id="hubEntityName" class="text-input" placeholder="Records" style="width: 100%;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">Initial Fields (comma separated)</label>
+          <input type="text" id="hubFieldsText" class="text-input" placeholder="id, name, status" style="width: 100%;">
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button id="btnCreateCustom" class="btn btn-red">Create & Open</button>
+        </div>
+      </div>
+
+      <div id="hubDropZone" class="js-mode-standard" style="border: 2px dashed var(--border-color, #ccc); padding: 24px; border-radius: 4px; max-width: 500px; margin-bottom: 20px; text-align: center; transition: all 0.2s; background: var(--bg-color);">
+        <div style="font-size: 24px; margin-bottom: 8px;">📂</div>
+        <h4 style="margin-top: 0; margin-bottom: 6px;">Load Existing File</h4>
+        <p style="font-size: 12px; opacity: 0.7; margin-top: 0; margin-bottom: 14px;">Select any <code>.bejson</code> or <code>.json</code> file from device, or paste raw text</p>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+          <button class="btn btn-red" id="btnDropZoneImport">Load Existing JSON / BEJSON</button>
+          <button class="btn" id="btnDropZonePaste">Paste BEJSON Text</button>
+        </div>
+        <input type="file" id="fileInput" class="hidden">
+      </div>
+
+      <div id="hubMfdbLoadZone" class="js-mode-mfdb hidden" style="border: 1px solid var(--border-color, #ccc); padding: 20px; border-radius: 4px; max-width: 500px; margin-bottom: 20px; background: var(--bg-color);">
+        <h4 style="margin-top: 0; margin-bottom: 6px;">MFDB Database</h4>
+        <p style="font-size: 12px; opacity: 0.7; margin-top: 0; margin-bottom: 14px;">Load a manifest and its entity files together (multiple files, a whole folder, or a ZIP), mount a folder for direct save-back, or export everything loaded as a ZIP.</p>
+        <div style="display: flex; justify-content: flex-start; gap: 10px; flex-wrap: wrap;">
+          <button class="btn" id="btnLoadMultiFiles">Load Multiple Files</button>
+          <button class="btn" id="btnLoadMfdbFolder">Load MFDB Folder</button>
+          <button class="btn" id="btnLoadMfdbZip">Load MFDB ZIP</button>
+          <button class="btn hidden" id="btnMountMfdbFolder" title="Uses the File System Access API to keep this editor linked to the folder on disk, so Save writes directly back to the original files.">Mount MFDB Folder (Chrome/Edge)</button>
+          <button class="btn" id="btnExportMfdbZip">Export Loaded Tables as ZIP</button>
+        </div>
+        <div id="mfdbMountStatus" style="font-size: 12px; opacity: 0.75; margin-top: 10px;"></div>
+      </div>
+      </div>
+    </div>

@@ -1,0 +1,27 @@
+<!--
+  Tab: Spreadsheet Grid
+  Description: Primary spreadsheet grid editing interface with status banner and dynamic table body.
+-->
+<div id="tab-grid" class="tab-content hidden" role="tabpanel">
+  <div id="statusBanner" class="status-banner valid hidden" style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+    <span id="statusMessage"></span>
+    <button id="btnValidationInfo" class="btn hidden" data-click="showValidationReport" title="View detailed validation errors dialog" style="margin-left: auto; padding: 3px 10px; font-size: 11px; font-weight: bold; background: #DE2626; color: #ffffff; border: 1px solid #7f1d1d; border-radius: 3px; cursor: pointer; white-space: nowrap;">ℹ View Errors</button>
+  </div>
+  
+  <!-- Hidden utility anchors for legacy JS queries -->
+  <div class="hidden" style="display: none;">
+    <button id="btnDeleteSelected">Delete Selected</button>
+    <button id="btnClearSelectedRows" data-click="clearSelectedRows">Clear Selected</button>
+    <button id="btnToggleUuid">Show UUID</button>
+    <button id="btnEditHeaders">Custom Headers</button>
+  </div>
+
+  <div class="scrollable-container thin-scrollbar">
+    <table>
+      <thead>
+        <tr id="tableHeaderRow"></tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</div>
