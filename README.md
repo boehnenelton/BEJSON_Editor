@@ -5,6 +5,7 @@
 > Single-file, dependency-free browser editor and visual spreadsheet grid for BEJSON (104/104a) documents and Multi-File Database (MFDB v1.31) manifests and entities.
 
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_in_Browser-DE2626?style=flat-square&logo=cloudflare)](https://boehnenelton2024.pages.dev/apps/bejson-web-editor/)
 [![Version](https://img.shields.io/badge/Version-1.2.9-blue.svg)]()
 [![Package](https://img.shields.io/badge/Package-PKG%20169-orange.svg)]()
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-red.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0/)
@@ -18,6 +19,7 @@
 
 - **Application Name:** BEJSON Editor (104-Only Build)
 - **Primary Executable:** `BEJSON_Editor_JS.html`
+- **Live Browser App:** [boehnenelton2024.pages.dev/apps/bejson-web-editor/](https://boehnenelton2024.pages.dev/apps/bejson-web-editor/)
 - **Target Runtime:** Modern Web Browsers (Chrome, Edge, Firefox, Safari) & Android Termux
 - **Current Version:** V129 / PKG169
 - **Format Heritage:** BEJSON 104 and 104a (Foundational & Metadata Eras)
@@ -27,7 +29,7 @@
 - **Author & Format Creator:** Elton Boehnen
 - **Email Contact:** [boehnenelton2024@gmail.com](mailto:boehnenelton2024@gmail.com)
 - **Web Portal:** [boehnenelton2024.pages.dev](https://boehnenelton2024.pages.dev)
-- **Source Repository:** [github.com/boehnenelton/Modern_BEJSON_Editor](https://github.com/boehnenelton/Modern_BEJSON_Editor)
+- **Source Repository:** [github.com/boehnenelton/BEJSON_Editor](https://github.com/boehnenelton/BEJSON_Editor)
 - **Relational Document ID:** `3f6c1d52-7a0e-4b8d-9a47-5c2e8b91d0a4`
 
 ![01 Hub Standard Dark Theme](images/01_hub_standard_dark.png)
